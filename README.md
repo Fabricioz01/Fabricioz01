@@ -61,7 +61,5 @@ Si lo puedes imaginar, ¡lo puedes programar!
 
 ---
 
-## 🐍 Snake Animation:
-<img src="https://github.com/Fabricioz01/Fabricioz01/blob/output/github-contribution-grid-snake.svg" alt="Snake animation" />
 
 
