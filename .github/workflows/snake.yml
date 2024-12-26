@@ -15,24 +15,3 @@ jobs:
         uses: Platane/snk@v2.1.0
         with:
           github_user_name: Fabricioz01
-          outputs: dist/snake.svg
-
-      - name: Upload Snake Animation
-        uses: actions/upload-artifact@v3
-        with:
-          name: snake-animation
-          path: dist/snake.svg
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: generate
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Deploy Snake Animation
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
