@@ -1,25 +1,23 @@
 name: Generate Snake Animation
 
 on:
-  schedule:
-    - cron: "0 20 * * *"
-  workflow_dispatch:
+  workflow_dispatch: # Permite ejecutar manualmente el flujo
 
 jobs:
   generate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repositorio
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Generar Animación
+      - name: Generate Snake Animation
         uses: Platane/snk@v2
         with:
           github_user_name: Fabricioz01
           outputs: dist/snake.svg
 
-      - name: Subir Animación
+      - name: Upload Snake Animation
         uses: actions/upload-artifact@v3
         with:
           name: snake-animation
@@ -30,10 +28,10 @@ jobs:
     needs: generate
 
     steps:
-      - name: Checkout Repositorio
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Desplegar en GitHub Pages
+      - name: Deploy Snake Animation
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
